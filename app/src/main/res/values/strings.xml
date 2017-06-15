@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TestKotlin</string>
+
+    <!--请求异常信息-->
+    <string name="net_error_for_link_exception">网络连接异常，请稍后重试</string>
+    <string name="net_error_for_access_unauthorized">网络访问未授权</string>
+    <string name="net_error_for_access_denied">网络访问被禁止</string>
+    <string name="net_error_for_not_find">找不到请求资源地址</string>
+    <string name="net_error_for_time_out">服务器连接超时,请稍后再试</string>
+    <string name="net_error_for_service_error">人太多啦，请稍后重试</string>
+    <string name="net_error_for_json">数据开小差了，请稍后重试</string>
+    <string name="net_error_for_ssl">证书验证失败</string>
+</resources>
