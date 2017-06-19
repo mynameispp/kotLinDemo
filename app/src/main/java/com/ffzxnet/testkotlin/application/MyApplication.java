@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.support.v4.content.ContextCompat;
@@ -19,8 +20,16 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.image.QualityInfo;
+import com.ffzxnet.testkotlin.R;
+import com.ffzxnet.testkotlin.galleryFinal.FrescoImageLoader;
+import com.ffzxnet.testkotlin.galleryFinal.GalleryFinalActivity;
 
 import java.util.Locale;
+
+import cn.finalteam.galleryfinal.CoreConfig;
+import cn.finalteam.galleryfinal.FunctionConfig;
+import cn.finalteam.galleryfinal.GalleryFinal;
+import cn.finalteam.galleryfinal.ThemeConfig;
 
 /**
  * 创建者： feifan.pi 在 2017/5/5.
@@ -50,6 +59,7 @@ public class MyApplication extends Application {
 //        Screen_Height = ScreenUtils.getScreenHeight(context);
         initFresco();
         initPing();
+        initGallery();
     }
 
     /**
@@ -131,5 +141,36 @@ public class MyApplication extends Application {
 
     public static int getColorByResId(int colorId) {
         return ContextCompat.getColor(MyApplication.getContext(), colorId);
+    }
+
+    /**
+     * 初始化图片选择器
+     */
+    private void initGallery() {
+        //主题风格
+        ThemeConfig theme = new ThemeConfig.Builder()
+                .setTitleBarBgColor(Color.rgb(0xFF, 0x57, 0x22))
+                .setTitleBarTextColor(Color.BLACK)
+                .setTitleBarIconColor(Color.BLACK)
+                .setFabNornalColor(Color.RED)
+                .setFabPressedColor(Color.BLUE)
+                .setCheckNornalColor(Color.WHITE)
+                .setCheckSelectedColor(Color.BLACK)
+                .build();
+        //配置功能
+        FunctionConfig functionConfig = new FunctionConfig.Builder()
+                .setEnableCamera(true)
+                .setEnableEdit(true)
+                .setEnableCrop(true)
+                .setEnableRotate(true)
+                .setCropSquare(true)
+                .setEnablePreview(true)
+                .build();
+        //配置imageloader
+        FrescoImageLoader imageLoader = new FrescoImageLoader(context);
+        CoreConfig coreConfig = new CoreConfig.Builder(context, imageLoader, theme)
+                .setFunctionConfig(functionConfig)
+                .build();
+        GalleryFinal.init(coreConfig);
     }
 }

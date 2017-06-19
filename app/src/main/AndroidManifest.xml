@@ -4,7 +4,7 @@
 
     <!-- 连接网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--读写手机SD卡和本地存储路径-->
+    <!-- 读写手机SD卡和本地存储路径 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".web_view.WebViewActivity" />
-        <activity android:name=".swipe_activty.SwipeLayoutActivty"/>
+        <activity android:name=".swipe_activty.SwipeLayoutActivty" />
+        <activity android:name=".galleryFinal.GalleryFinalActivity"/>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
+import com.ffzxnet.testkotlin.galleryFinal.GalleryFinalActivity
 import com.ffzxnet.testkotlin.net.*
 import com.ffzxnet.testkotlin.swipe_activty.SwipeLayoutActivty
 import com.ffzxnet.testkotlin.swipe_layout.OnLoadMoreListener
@@ -87,6 +88,10 @@ class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsite
                 val index=adapter!!.getDataList().indexOf("data 5")
                 adapter!!.getDataList().remove("data 5")
                 adapter!!.notifyItemRemoved(index)
+            }
+            "data 6" -> {
+                val intent = Intent(this, GalleryFinalActivity::class.java)
+                startActivity(intent)
             }
             "data 9" -> {
                 val intent = Intent(this, SwipeLayoutActivty::class.java)

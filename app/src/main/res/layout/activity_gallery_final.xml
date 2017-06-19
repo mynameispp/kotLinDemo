@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/fresco_img"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单选图片" />
+    <Button
+        android:id="@+id/more_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多选打开相册" />
+    <Button
+        android:id="@+id/open_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用拍照" />
+    <Button
+        android:id="@+id/crop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用裁剪" />
+</LinearLayout>
