@@ -12,7 +12,11 @@ import kotlinx.android.synthetic.main.item_main_list.view.*
  * 创建者： feifan.pi 在 2017/6/14.
  */
 
-class JavaAdapter(private val datas: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class JavaAdapter(private var datas: MutableList<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    fun getDatas():MutableList<String>{
+        return datas
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main_list, parent, false)

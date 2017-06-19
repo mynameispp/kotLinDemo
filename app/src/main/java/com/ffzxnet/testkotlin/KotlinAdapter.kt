@@ -12,15 +12,19 @@ import kotlinx.android.synthetic.main.item_main_list.view.*
  */
 class KotlinAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //数据
-    private var datas: List<String>? = null
+    private var datas: MutableList<String>? = null
     //点击接口
     private var clickListen: OnMainListItemClickLsiten? = null
 
-    constructor(datas: List<String>) : this() {
+    fun getDataList():MutableList<String>{
+        return datas!!
+    }
+
+    constructor(datas: MutableList<String>) : this() {
         this.datas = datas
     }
 
-    constructor(datas: List<String>, clickListen: OnMainListItemClickLsiten) : this() {
+    constructor(datas: MutableList<String>, clickListen: OnMainListItemClickLsiten) : this() {
         this.datas = datas;
         this.clickListen = clickListen
     }
