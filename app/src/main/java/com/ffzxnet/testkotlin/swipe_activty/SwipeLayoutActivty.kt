@@ -22,8 +22,8 @@ class SwipeLayoutActivty : AppCompatActivity(), OnRefreshListener, OnLoadMoreLis
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_swipe)
 
-        swipe_layout.setOnRefreshListener(this)
-        swipe_layout.setOnLoadMoreListener(this)
+        swipe_layout_lay.setOnRefreshListener(this)
+        swipe_layout_lay.setOnLoadMoreListener(this)
 
         swipe_target.layoutManager = LinearLayoutManager(this)
 
@@ -53,7 +53,7 @@ class SwipeLayoutActivty : AppCompatActivity(), OnRefreshListener, OnLoadMoreLis
                 //自动滑到刷新的数据第一条
                 swipe_target.scrollToPosition(0)
             }
-            swipe_layout.setRefreshing(false)
+            swipe_layout_lay.setRefreshing(false)
         }, 2000)
     }
 
@@ -66,13 +66,13 @@ class SwipeLayoutActivty : AppCompatActivity(), OnRefreshListener, OnLoadMoreLis
             adapter!!.notifyItemInserted(oldIndex)
             //自动滑到加载的数据第一条
             swipe_target.scrollToPosition(oldIndex)
-            swipe_layout.setLoadingMore(false)
+            swipe_layout_lay.setLoadingMore(false)
         }, 2000)
     }
 
     private fun autoRefresh() {
-        swipe_layout.post(Runnable {
-            swipe_layout.setRefreshing(true)
+        swipe_layout_lay.post(Runnable {
+            swipe_layout_lay.setRefreshing(true)
         })
     }
 }
