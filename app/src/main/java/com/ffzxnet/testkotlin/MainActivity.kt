@@ -14,9 +14,9 @@ import com.ffzxnet.testkotlin.swipe_layout.OnRefreshListener
 import com.ffzxnet.testkotlin.web_view.WebViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsiten{
+class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsiten {
 
-    private var adapter:KotlinAdapter? = null
+    private var adapter: KotlinAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +32,11 @@ class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsite
         //数据
 //        list_view.adapter=JavaAdapter(datas)
         //数据+点击事件监听
-        adapter=KotlinAdapter(datas, this)
-        val da= adapter!!.getDataList()
-        for ((index,dat) in da.withIndex()) {
-            Log.e("dddddd","index $index,data: $dat")
+        val datas2 = mutableListOf<String>()
+        adapter = KotlinAdapter(datas, this)
+        val da = adapter!!.getDataList()
+        for ((index, dat) in da.withIndex()) {
+            Log.e("dddddd", "index $index,data: $dat")
         }
         list_view.adapter = adapter
 
@@ -81,13 +82,15 @@ class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsite
                 startActivity(intent)
             }
             "data 4" -> {
-                adapter!!.getDataList().remove("data 4")
-                adapter!!.notifyItemRemoved(4)
+                adapter?.getDataList()?.remove("data 4")
+                adapter?.notifyItemRemoved(4)
             }
             "data 5" -> {
-                val index=adapter!!.getDataList().indexOf("data 5")
-                adapter!!.getDataList().remove("data 5")
-                adapter!!.notifyItemRemoved(index)
+                if (null != adapter) {
+                    val index = adapter!!.getDataList().indexOf("data 5")
+                    adapter?.getDataList()?.remove("data 5")
+                    adapter?.notifyItemRemoved(index)
+                }
             }
             "data 6" -> {
                 val intent = Intent(this, GalleryFinalActivity::class.java)

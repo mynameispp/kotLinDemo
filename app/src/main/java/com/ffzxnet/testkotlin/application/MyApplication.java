@@ -149,22 +149,22 @@ public class MyApplication extends Application {
     private void initGallery() {
         //主题风格
         ThemeConfig theme = new ThemeConfig.Builder()
-                .setTitleBarBgColor(Color.rgb(0xFF, 0x57, 0x22))
-                .setTitleBarTextColor(Color.BLACK)
-                .setTitleBarIconColor(Color.BLACK)
-                .setFabNornalColor(Color.RED)
-                .setFabPressedColor(Color.BLUE)
-                .setCheckNornalColor(Color.WHITE)
-                .setCheckSelectedColor(Color.BLACK)
+                .setTitleBarBgColor(getColorByResId(R.color.colorPrimary))
+                .setTitleBarTextColor(Color.WHITE)
+                .setTitleBarIconColor(Color.WHITE)
+                .setFabNornalColor(getColorByResId(R.color.colorPrimary))
+                .setFabPressedColor(getColorByResId(R.color.colorPrimaryDark))
+                .setCheckNornalColor(Color.WHITE)//打钩的颜色
+                .setCheckSelectedColor(getColorByResId(R.color.colorPrimary))//选择的背景颜色
                 .build();
         //配置功能
         FunctionConfig functionConfig = new FunctionConfig.Builder()
                 .setEnableCamera(true)
-                .setEnableEdit(true)
-                .setEnableCrop(true)
-                .setEnableRotate(true)
-                .setCropSquare(true)
-                .setEnablePreview(true)
+                .setEnableEdit(true)//编辑
+                .setEnableCrop(false)//是否可以剪切
+                .setEnableRotate(false)
+                .setCropSquare(false)//裁剪
+                .setEnablePreview(false)//是否可预览
                 .build();
         //配置imageloader
         FrescoImageLoader imageLoader = new FrescoImageLoader(context);
