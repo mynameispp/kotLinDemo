@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.item_main_list.view.*
 /**
  * 创建者： feifan.pi 在 2017/6/14.
  */
-class KotlinAdapter @JvmOverloads constructor(private val datas: MutableList<String>, clickListen: OnMainListItemClickLsiten? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class KotlinAdapter @JvmOverloads constructor(private var datas: MutableList<String>, clickListen: OnMainListItemClickLsiten? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //    //数据
 //    private var datas: MutableList<String>? = null
 //    //点击接口
@@ -23,6 +23,13 @@ class KotlinAdapter @JvmOverloads constructor(private val datas: MutableList<Str
     //可能返回为null
     fun getDataList(): MutableList<String> {
         return datas
+    }
+
+    //添加数据
+    fun addDatas(adds: MutableList<String>) {
+        val oldSize = datas.size
+        datas.addAll(adds)
+        notifyItemRangeInserted(oldSize, datas.size)
     }
 //    使用下面构造函数：要这样 class KotlinAdapter() ，上面的格式等同于下面的构造格式
 //    constructor(datas: MutableList<String>) : this() {

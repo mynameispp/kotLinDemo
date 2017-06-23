@@ -51,9 +51,12 @@ class MainActivity : AppCompatActivity(), KotlinAdapter.OnMainListItemClickLsite
             }
 
             override fun onNext(result: BaseApiResultData<List<BannerResponse>>) {
+                var addDatas= mutableListOf<String>()
                 for (item in result.infoData!!) {
                     Log.e("item", "${item.title}")
+                    addDatas.add(item.title!!)
                 }
+                adapter!!.addDatas(addDatas)
             }
         })
 
