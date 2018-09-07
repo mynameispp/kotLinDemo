@@ -12,9 +12,10 @@
 添加接口实现在ApiImp
 请求调用代码结构如下
 
-                  loginByNamea是APiImp里实现的接口方法
-									这里用到的是RxLife的插件用来绑定接口与Activity或Fragment的生命周期
-									ApiSubscriber是请求结果的处理封装类，注意ApiSubscriber<T> T是更接口和接口实现方法的返回值一致
+loginByNamea是APiImp里实现的接口方法
+这里用到的是RxLife的插件用来绑定接口与Activity或Fragment的生命周期
+ApiSubscriber是请求结果的处理封装类，注意ApiSubscriber<T> T是更接口和接口实现方法的返回值一致
+	
 ApiImp.instance.loginByName(loginRequest)
                 .bindUntilEvent(lifecycleProvider, ActivityEvent.DESTROY)
                 .subscribe(object : ApiSubscriber<BaseApiResultData<UserInfo>>() {
