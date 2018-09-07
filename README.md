@@ -3,13 +3,18 @@
 
 这个项目只是我初学的一个Demo
 里面用了kotlin+retrofit2+rxjava2
-代码结构模式是MVP\n\n
+代码结构模式是MVP
 
 第二版(app2)：
-2018/08/07  第二个版本是在1.2版本的kotlin基础上编写，主要是再次封装retrofit网络请求，\n
-添加接口在ApiService\n
-添加接口实现在ApiImp\n
-请求调用代码结构如下\n\n
+
+2018/08/07  第二个版本是在1.2版本的kotlin基础上编写，主要是再次封装retrofit网络请求，
+
+添加接口在ApiService
+
+添加接口实现在ApiImp
+
+请求调用代码结构如下
+
                   //loginByNamea是APiImp里实现的接口方法
 ApiImp.instance.loginByName(loginRequest)
                 //这里用到的是RxLife的插件用来绑定接口与Activity或Fragment的生命周期
@@ -37,6 +42,7 @@ ApiImp.instance.loginByName(loginRequest)
                         myView.TokenInvalid()
                     }
                 })
+
 
 主要技能点：
 1.recyclerview的adpata 和item 的点击事件
