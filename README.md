@@ -41,7 +41,7 @@ ApiImp.instance.loginByName(loginRequest)
                 })
 
 ```
-###主要技能点：
+###主要技能点：<br>
 1.recyclerview的adpata 和item 的点击事件<br>
 2.retrofit2的请求和处理封装<br>
 3.Activty和Fragment的base父类简单的处理方法<br>
