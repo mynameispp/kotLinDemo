@@ -3,7 +3,7 @@
 
 这个项目只是我初学的一个Demo
 里面用了kotlin+retrofit2+rxjava2
-代码结构模式是MVP
+代码结构模式是MVP\n\n
 
 第二版(app2)：
 2018/08/07  第二个版本是在1.2版本的kotlin基础上编写，主要是再次封装retrofit网络请求，
