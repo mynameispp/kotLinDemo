@@ -16,7 +16,7 @@
 ApiImp.instance.loginByName(loginRequest)
 		//这里用到的是RxLife的插件用来绑定接口与Activity或Fragment的生命周期
                 .bindUntilEvent(lifecycleProvider, ActivityEvent.DESTROY)
-		//ApiSubscriber是请求结果的处理封装类，注意ApiSubscriber<T> T是更接口和接口实现方法的返回值一致
+		//ApiSubscriber是请求结果的处理封装类，注意ApiSubscriber<T> T是返回值跟接口和接口实现方法的返回值一致
                 .subscribe(object : ApiSubscriber<BaseApiResultData<UserInfo>>() {
                     override fun onSuccess(data: BaseApiResultData<UserInfo>) {
                         返回数据
