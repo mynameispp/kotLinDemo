@@ -1,6 +1,5 @@
 package com.vipyoung.app2.view.main.fragment
 
-import android.util.Log
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.trello.rxlifecycle2.android.FragmentEvent
 import com.trello.rxlifecycle2.kotlin.bindUntilEvent
@@ -12,7 +11,6 @@ import com.vipyoung.app2.net.ApiImp
 import com.vipyoung.app2.net.ApiSubscriber
 import com.vipyoung.app2.net.ErrorResponse
 import com.vipyoung.app2.util.ToastUtil
-import com.vipyoung.app2.view.main.MainContract
 import org.jetbrains.annotations.NotNull
 
 /**
@@ -30,13 +28,13 @@ class MyFragmentPresenter(@NotNull val lifecycleProvider: LifecycleProvider<Frag
     }
 
     override fun getUserInfo(loginRequest: LoginRequest) {
-        myView.showLoadingDialog(true,"登录中...")
+        myView.showLoadingDialog(true, "登录中...")
         ApiImp.instance.loginByName(loginRequest)
                 .bindUntilEvent(lifecycleProvider, FragmentEvent.DESTROY)
                 .subscribe(object : ApiSubscriber<BaseApiResultData<UserInfo>>() {
                     override fun onSuccess(data: BaseApiResultData<UserInfo>) {
                         myView.getUserInfo(data.body)
-                        Constans.appToken=data.body.token
+                        Constans.appToken = data.body.token
                         getSchoolInfo()
                     }
 
@@ -45,6 +43,10 @@ class MyFragmentPresenter(@NotNull val lifecycleProvider: LifecycleProvider<Frag
 
                     override fun onFailure(error: ErrorResponse) {
                         ToastUtil.showToastLong(error.message)
+                        val userInfo = UserInfo(loginRequest.username)
+                        userInfo.realname = loginRequest.username
+                        userInfo.schoolName = "西红柿"
+                        myView.getUserInfo(userInfo)
                         myView.showLoadingDialog(false)
                     }
 

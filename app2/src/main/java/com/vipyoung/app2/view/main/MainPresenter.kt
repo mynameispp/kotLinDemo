@@ -40,6 +40,11 @@ class MainPresenter(@NotNull val lifecycleProvider: LifecycleProvider<ActivityEv
                     }
 
                     override fun onFailure(error: ErrorResponse) {
+                        val userInfo=UserInfo("小米")
+                        userInfo.realname="旺旺"
+                        userInfo.schoolName="西红柿"
+                        myView.getUserInfo(userInfo)
+                        myView.getSchoolInfo(userInfo)
                         myView.showLoadingDialog(false)
                     }
 

@@ -1,5 +1,6 @@
 package com.vipyoung.app2.view.main.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,7 +8,10 @@ import android.view.View
 import com.vipyoung.app2.base.view.BaseFragment
 import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
+import com.vipyoung.app2.view.function_test.ContrastActivity
+import com.vipyoung.app2.view.function_test.ThreadActivity
 import com.vipyoung.testkotlin.R
+import kotlinx.android.synthetic.main.activity_thread.*
 import kotlinx.android.synthetic.main.fragment.*
 
 /**
@@ -49,6 +53,14 @@ class MyFragmnet : BaseFragment(), MyFragmentContract.View {
         })
         login_btn.setOnClickListener {
             myFragmentPresenter.getUserInfo(LoginRequest(my_edit_text.text.toString(), edit_pwd.text.toString()))
+        }
+
+        menu1.setOnClickListener {
+            startActivity(Intent(myContext,ContrastActivity::class.java))
+        }
+
+        menu2.setOnClickListener {
+            startActivity(Intent(myContext,ThreadActivity::class.java))
         }
     }
 

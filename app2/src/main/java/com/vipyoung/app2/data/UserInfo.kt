@@ -1,5 +1,6 @@
 package com.vipyoung.app2.data
 
+import android.util.Log
 import com.vipyoung.app2.base.data.BaseResponse
 
 /**
@@ -7,7 +8,7 @@ import com.vipyoung.app2.base.data.BaseResponse
  * @date 创建时间:2018/5/28
  * @description 用户信息实体类
  */
-class UserInfo : BaseResponse() {
+data class UserInfo(var username: String?) : BaseResponse() {
     var avatar: String? = null//头像
     var birthday: String? = null
     var gender: String? = null
@@ -19,9 +20,9 @@ class UserInfo : BaseResponse() {
     var siteUrl: String? = null//接口地址
     var token: String? = null
     var userCode: String? = null//用户唯一标示
-    var username: String? = null//账号
     var bgImage: String? = null//用户中心背景图
     var roleType: Int = 0//账号角色（0=学生，1=老师，2=管理员）
+
     //获取学生学校班级接口的
     var schoolLogo: String? = null//开机启动页
     var maxBaseVideoScore: Double = 0.toDouble()//语音蓝色比例
@@ -29,4 +30,21 @@ class UserInfo : BaseResponse() {
     var schoolName: String? = null//学校名称
     var classCode: String? = null//班级Code
     var standard: String? = null//学生层级
+
+
+    override fun equals(other: Any?): Boolean {
+        other ?: return false
+        if (this === other) {
+            return true
+        }
+        val className = other::class.java.name
+        if (className != this::class.java.name) {
+            return false
+        }
+        return if (other is UserInfo) {
+            other.username==username
+        } else {
+            false
+        }
+    }
 }

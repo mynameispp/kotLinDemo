@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.vipyoung.app2.base.view.BaseActivity
 import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
-import com.vipyoung.app2.view.SecondActivity
+import com.vipyoung.app2.view.function_test.ContrastActivity
 import com.vipyoung.app2.view.main.fragment.MyFragmnet
 import com.vipyoung.testkotlin.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,18 +26,18 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun getUserInfo(userInfo: UserInfo) {
         this.userInfo = userInfo
-        student_name.text = "Acticty haha ${userInfo.realname}"
+        student_name.text = "姓名: ${userInfo.realname}"
     }
 
     override fun getSchoolInfo(userInfo: UserInfo) {
         this.userInfo.schoolName=userInfo.schoolName
-        school_name.text = "Acticty heihei ${userInfo.schoolName}"
+        school_name.text = "学校： ${userInfo.schoolName}"
     }
 
     override fun initView() {
         //初始化
         student_name.setOnClickListener {
-            val intent = Intent(it.context, SecondActivity::class.java)
+            val intent = Intent(it.context, ContrastActivity::class.java)
             val bundle = Bundle()
             userInfo.realname="你好，小${userInfo.realname}"
             bundle.putSerializable("userinfo", userInfo)
