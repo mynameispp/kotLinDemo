@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_thread.*
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
+//携程Demo
 class ThreadActivity : BaseActivity(), View.OnClickListener, CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
@@ -74,10 +75,10 @@ class ThreadActivity : BaseActivity(), View.OnClickListener, CoroutineScope {
 
     suspend fun starCoroutineLaunch(timeOut: Long) {
         Log.e("dddd", "开始倒计时打印\n")
-        //3秒关闭
         try {
+            //timeOut秒超时关闭
             withTimeout(timeOut) {
-                coroutineScope {
+//                coroutineScope {
                     launch {
                         var index = 1
                         //                    withContext(Dispatchers.IO) {//切换到IO线程
@@ -88,22 +89,29 @@ class ThreadActivity : BaseActivity(), View.OnClickListener, CoroutineScope {
                         }
                         //                    }
                     }
-                }
+//                }
             }
         } finally {
             Log.e("dddd", "结束倒计时打印\n")
+            thread_content.text="${timeOut/1000}秒，超时结束"
         }
     }
 
     suspend fun starIOCoroutineLaunch() {
         Log.e("dddd", "开始处理耗时任务\n")
+        thread_content.text="开始处理耗时任务"
         //切换到IO线程
         withContext(Dispatchers.IO) {
-            //网络或耗时任务
+            //网络或耗时任务，IO线程
             Log.e("dddd", "处理耗时任务中\n")
+            withContext(Dispatchers.Main){
+                //主线程
+                thread_content.text = "处理耗时任务中"
+                delay(3000)
+            }
             delay(3000)
         }
-        //回到主线程
+        //主线程
         thread_content.text = "处理耗时任务完成"
         Log.e("dddd", "处理耗时任务完成\n")
     }

@@ -1,6 +1,5 @@
 package com.vipyoung.app2.data
 
-import android.util.Log
 import com.vipyoung.app2.base.data.BaseResponse
 
 /**
@@ -37,12 +36,12 @@ data class UserInfo(var username: String?) : BaseResponse() {
         if (this === other) {
             return true
         }
-        val className = other::class.java.name
-        if (className != this::class.java.name) {
+        val className = other.javaClass.name
+        if (className != this.javaClass.name) {
             return false
         }
         return if (other is UserInfo) {
-            other.username==username
+            other.username == username
         } else {
             false
         }

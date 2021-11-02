@@ -12,12 +12,8 @@ import com.vipyoung.app2.data.UserInfo
  */
 interface MainContract {
     interface Presenter : BasePresenter {
-        fun getUserInfo(loginRequest: LoginRequest)
-        fun getSchoolInfo()
     }
 
     interface View : BaseActivityView<Presenter> {
-        fun getUserInfo(userInfo: UserInfo)
-        fun getSchoolInfo(userInfo: UserInfo)
     }
 }

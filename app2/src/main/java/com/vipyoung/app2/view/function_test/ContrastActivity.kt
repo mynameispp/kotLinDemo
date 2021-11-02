@@ -1,7 +1,6 @@
 package com.vipyoung.app2.view.function_test
 
 import android.os.Bundle
-import android.util.Log
 import com.vipyoung.app2.base.view.BaseActivity
 import com.vipyoung.app2.data.UserInfo
 import com.vipyoung.app2.util.ToastUtil
@@ -19,24 +18,28 @@ class ContrastActivity : BaseActivity() {
 
     override fun createdViewByBase(savedInstanceState: Bundle?) {
 
-        val userinfo= intent.extras?.getSerializable("userinfo") as UserInfo?
-        val user2=UserInfo("小米n")
+        val userinfo = intent.extras?.getSerializable("userinfo") as UserInfo?
+        val user2 = UserInfo("小米")
 
-        val userList= mutableListOf<UserInfo>()
+        val userList = mutableListOf<UserInfo>()
         userList.add(user2)
-        user2.realname="hahah"
-        val aaa="aaaa"
-        Log.e("dddddddd","==对象对比==${userinfo?.equals(user2)?:false}")//false
-        Log.e("dddddddd","==对象是否在列表===${userinfo in userList}")//false
-        Log.e("dddddddd","==对象值对比===${user2.realname==aaa}")//false
-        Log.e("dddddddd","==对象值和明文对比===${user2.realname==="hahah"}")//true
-        Log.e("dddddddd","==明文字符串对比==${"aa"==="aa"}")//true
+        user2.realname = "hahah"
+        val aaa = "hahah"
+        val logS = StringBuilder()
+        logS.append("==对象对比==${userinfo?.equals(user2) ?: false}\n")
+                .append("==对象是否在列表===${userinfo in userList}\n")
+                .append("==对象值对比===${user2.realname == aaa}\n")
+                .append("==对象值和明文对比===${user2.realname === "hahah"}\n")
+                .append("==明文字符串对比==${"aa" === "aa"}\n")
+
         userinfo?.let {
-            second_text.text = it.realname
             userList.add(userinfo)
+            logS.append("==对象是否在列表===${userinfo in userList}\n")
+            logS.append("登录进来的账号：${it.realname}")
         } ?: ToastUtil.showToastLong("用户信息为空")
 
-        Log.e("dddddddd","==对象是否在列表===${userinfo in userList}")//true
+        //打印结果
+        second_text.text = logS.toString()
     }
 
 }

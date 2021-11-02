@@ -8,10 +8,10 @@ import android.view.View
 import com.vipyoung.app2.base.view.BaseFragment
 import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
+import com.vipyoung.app2.util.ToastUtil
 import com.vipyoung.app2.view.function_test.ContrastActivity
 import com.vipyoung.app2.view.function_test.ThreadActivity
 import com.vipyoung.testkotlin.R
-import kotlinx.android.synthetic.main.activity_thread.*
 import kotlinx.android.synthetic.main.fragment.*
 
 /**
@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment.*
 class MyFragmnet : BaseFragment(), MyFragmentContract.View {
     private lateinit var myFragmentPresenter: MyFragmentPresenter
 
+    private var userInfo: UserInfo? = null
     override fun getLayoutId(): Int {
         return R.layout.fragment
     }
@@ -56,11 +57,18 @@ class MyFragmnet : BaseFragment(), MyFragmentContract.View {
         }
 
         menu1.setOnClickListener {
-            startActivity(Intent(myContext,ContrastActivity::class.java))
+            userInfo ?: ToastUtil.showToastLong("请登录")
+            userInfo?.let {
+                val intent = Intent(myContext, ContrastActivity::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable("userinfo", userInfo)
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
         }
 
         menu2.setOnClickListener {
-            startActivity(Intent(myContext,ThreadActivity::class.java))
+            startActivity(Intent(myContext, ThreadActivity::class.java))
         }
     }
 
@@ -70,6 +78,7 @@ class MyFragmnet : BaseFragment(), MyFragmentContract.View {
     }
 
     override fun getUserInfo(userInfo: UserInfo) {
+        this.userInfo = userInfo
         user_info.text = userInfo.realname
     }
 

@@ -1,16 +1,15 @@
 package com.vipyoung.app2.view.main
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.RadioGroup
 import com.vipyoung.app2.base.view.BaseActivity
 import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
-import com.vipyoung.app2.view.function_test.ContrastActivity
 import com.vipyoung.app2.view.main.fragment.MyFragmnet
 import com.vipyoung.testkotlin.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(), MainContract.View {
+class MainActivity : BaseActivity(), MainContract.View, RadioGroup.OnCheckedChangeListener {
     private lateinit var userInfo: UserInfo
     private lateinit var mainPresenter: MainPresenter
 
@@ -24,33 +23,26 @@ class MainActivity : BaseActivity(), MainContract.View {
     }
 
 
-    override fun getUserInfo(userInfo: UserInfo) {
-        this.userInfo = userInfo
-        student_name.text = "姓名: ${userInfo.realname}"
-    }
-
-    override fun getSchoolInfo(userInfo: UserInfo) {
-        this.userInfo.schoolName=userInfo.schoolName
-        school_name.text = "学校： ${userInfo.schoolName}"
-    }
-
     override fun initView() {
         //初始化
-        student_name.setOnClickListener {
-            val intent = Intent(it.context, ContrastActivity::class.java)
-            val bundle = Bundle()
-            userInfo.realname="你好，小${userInfo.realname}"
-            bundle.putSerializable("userinfo", userInfo)
-            intent.putExtras(bundle)
-            startActivity(intent)
-        }
+        main_menu_layout.setOnCheckedChangeListener(this)
         supportFragmentManager.beginTransaction()
                 .add(R.id.fragment_content, MyFragmnet(), "MyFragment").commit()
-        //获取用户信息
-        mainPresenter.getUserInfo(LoginRequest("xxx", "xxxx"))
     }
 
     override fun setPresenter(presenter: MainContract.Presenter) {
         mainPresenter = presenter as MainPresenter
+    }
+
+
+    override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
+        when (p1) {
+            R.id.main_menu1 -> {
+
+            }
+            R.id.main_menu2 -> {
+
+            }
+        }
     }
 }
