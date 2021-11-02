@@ -45,4 +45,6 @@ ApiImp.instance.loginByName(loginRequest)
 1.recyclerview的adpata 和item 的点击事件<br>
 2.retrofit2的请求和处理封装<br>
 3.Activty和Fragment的base父类简单的处理方法<br>
-=。= 差不多就这些，其他的看看吧,项目可以直接跑起来，个人觉得的难点是空处理，感觉比java还难用~~~
+4.对象和值对比
+5.协程简单使用
+=。= 差不多就这些，其他的看看吧,项目可以直接跑起来.
