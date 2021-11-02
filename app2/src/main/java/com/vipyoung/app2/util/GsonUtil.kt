@@ -42,7 +42,7 @@ object GsonUtil {
      * json转成对象
      *
      * @param s    json
-     * @param type Type
+     * @param type Type object :TypeToken<MutableMap<String,UserInfo>>(){}.type
      * @return
      */
     fun toClass(s: String, type: Type): Any? {

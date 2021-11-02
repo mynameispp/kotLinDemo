@@ -10,7 +10,8 @@ import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
 import com.vipyoung.app2.util.ToastUtil
 import com.vipyoung.app2.view.function_test.ContrastActivity
-import com.vipyoung.app2.view.function_test.ThreadActivity
+import com.vipyoung.app2.view.function_test.CoroutineActivity
+import com.vipyoung.app2.view.function_test.GenericityActivity
 import com.vipyoung.testkotlin.R
 import kotlinx.android.synthetic.main.fragment.*
 
@@ -68,7 +69,11 @@ class MyFragmnet : BaseFragment(), MyFragmentContract.View {
         }
 
         menu2.setOnClickListener {
-            startActivity(Intent(myContext, ThreadActivity::class.java))
+            startActivity(Intent(myContext, CoroutineActivity::class.java))
+        }
+
+        menu3.setOnClickListener {
+            startActivity(Intent(myContext, GenericityActivity::class.java))
         }
     }
 

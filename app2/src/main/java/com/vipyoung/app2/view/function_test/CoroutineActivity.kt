@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 //携程Demo
-class ThreadActivity : BaseActivity(), View.OnClickListener, CoroutineScope {
+class CoroutineActivity : BaseActivity(), View.OnClickListener, CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
 

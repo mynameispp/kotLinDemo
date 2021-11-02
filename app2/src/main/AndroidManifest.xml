@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.vipyoung.app2.view.function_test.ContrastActivity"/>
-        <activity android:name="com.vipyoung.app2.view.function_test.ThreadActivity"/>
+        <activity android:name="com.vipyoung.app2.view.function_test.CoroutineActivity"/>
+        <activity android:name="com.vipyoung.app2.view.function_test.GenericityActivity" />
     </application>
 
 </manifest>

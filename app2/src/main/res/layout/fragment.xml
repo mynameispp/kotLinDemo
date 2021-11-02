@@ -61,4 +61,13 @@
         android:text="协程"
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/menu3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Gson泛型"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
 </LinearLayout>
