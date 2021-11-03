@@ -1,7 +1,5 @@
 # kotLinDemo
-初学kotlin
-
-这个项目只是我初学的一个Demo<br>
+这个项目只是我编写的一个Demo<br>
 里面用了kotlin+retrofit2+rxjava2<br>
 代码结构模式是MVP<br>
 
