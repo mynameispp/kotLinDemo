@@ -25,6 +25,7 @@
         <activity android:name="com.vipyoung.app2.view.function_test.CoroutineActivity"/>
         <activity android:name="com.vipyoung.app2.view.function_test.GenericityActivity" />
         <activity android:name="com.vipyoung.app2.view.function_test.list.ListActivity" />
+        <activity android:name="com.vipyoung.app2.view.function_test.MaterialDesignActivity" />
 
         <meta-data
             android:name="com.bumptech.glide.samples.flickr.FlickrGlideModule"

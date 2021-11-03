@@ -79,4 +79,13 @@
         android:text="列表"
         android:textAllCaps="false"
         android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/menu5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Material Design风格界面"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black" />
 </LinearLayout>

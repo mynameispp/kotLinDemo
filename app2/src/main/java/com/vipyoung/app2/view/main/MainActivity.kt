@@ -5,6 +5,7 @@ import android.widget.RadioGroup
 import com.vipyoung.app2.base.view.BaseActivity
 import com.vipyoung.app2.data.LoginRequest
 import com.vipyoung.app2.data.UserInfo
+import com.vipyoung.app2.util.ToastUtil
 import com.vipyoung.app2.view.main.fragment.MyFragmnet
 import com.vipyoung.testkotlin.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -38,10 +39,10 @@ class MainActivity : BaseActivity(), MainContract.View, RadioGroup.OnCheckedChan
     override fun onCheckedChanged(p0: RadioGroup?, p1: Int) {
         when (p1) {
             R.id.main_menu1 -> {
-
+                ToastUtil.showToastShort("基础")
             }
             R.id.main_menu2 -> {
-
+                ToastUtil.showToastShort("基础2")
             }
         }
     }

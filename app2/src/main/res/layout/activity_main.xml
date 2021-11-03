@@ -37,6 +37,6 @@
             android:button="@null"
             android:gravity="center"
             android:textColor="#000"
-            android:text="列表" />
+            android:text="基础2" />
     </RadioGroup>
 </LinearLayout>

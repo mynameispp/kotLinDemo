@@ -46,5 +46,6 @@ ApiImp.instance.loginByName(loginRequest)
 4.对象和值对比<br>
 5.协程简单使用<br>
 6.GsonUtil简单使用<br>
-6.列表简单使用<br>
-=。= 差不多就这些，其他的看看吧,项目可以直接跑起来.
+7.列表简单使用<br>
+7.Material Design风格控件<br>
+

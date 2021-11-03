@@ -37,7 +37,7 @@ class ListAdapter(var listData: MutableList<AdapterBean>?, var adapterListen: Ad
         }
     }
 
-    class MyHolder(view: View) : RecyclerView.ViewHolder(view) {
+  inner class MyHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun setData(data: AdapterBean, isStagger: Boolean) = with(itemView) {
             //设置标题
             item_list_txt.text = data.title
