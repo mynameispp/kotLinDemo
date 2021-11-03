@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/list_ver_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="竖向排版"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/list_hor_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/list_hor_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="横向排版"
+            app:layout_constraintLeft_toRightOf="@id/list_ver_btn"
+            app:layout_constraintRight_toLeftOf="@id/list_grid_btn"
+            app:layout_constraintTop_toTopOf="@id/list_ver_btn" />
+
+        <Button
+            android:id="@+id/list_grid_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="九宫格排版"
+            app:layout_constraintLeft_toRightOf="@id/list_hor_btn"
+            app:layout_constraintRight_toLeftOf="@id/list_pubu_btn"
+            app:layout_constraintTop_toTopOf="@id/list_hor_btn" />
+
+        <Button
+            android:id="@+id/list_pubu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="瀑布流排版"
+            app:layout_constraintLeft_toRightOf="@id/list_grid_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

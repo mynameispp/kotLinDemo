@@ -7,7 +7,7 @@
 
 ###第二版(app2)：
 
-2018/08/07  第二个版本是在1.2版本的kotlin基础上编写，主要是再次封装retrofit网络请求，<br>
+2018/08/07  第二个版本是在app版本的kotlin基础上编写，主要是再次封装retrofit网络请求，<br>
 添加接口在ApiService<br>
 添加接口实现在ApiImp<br>
 请求调用代码结构如下<br>
@@ -48,4 +48,5 @@ ApiImp.instance.loginByName(loginRequest)
 4.对象和值对比<br>
 5.协程简单使用<br>
 6.GsonUtil简单使用<br>
+6.列表简单使用<br>
 =。= 差不多就这些，其他的看看吧,项目可以直接跑起来.
